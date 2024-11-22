@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout :: head"></head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div th:replace="fragments/layout :: sidebar"></div>
+        
+        <!-- Contenido Principal -->
+        <div id="content">
+            <div class="container form-container">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <h2 class="text-center mb-4">
+                            <i class="fas fa-user-edit me-2"></i>Editar Cliente
+                        </h2>
+                        
+                        <form th:action="@{/views/cliente/save}" method="post" class="row g-3">
+                            <input type="hidden" name="id" th:value="${cliente.id}">
+                            
+                            <div class="col-md-6">
+                                <label class="form-label">Apellido Paterno</label>
+                                <input type="text" name="paterno" class="form-control" 
+                                       th:value="${cliente.paterno}" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Apellido Materno</label>
+                                <input type="text" name="materno" class="form-control" 
+                                       th:value="${cliente.materno}" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Nombres</label>
+                                <input type="text" name="nombres" class="form-control" 
+                                       th:value="${cliente.nombres}" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">DNI</label>
+                                <input type="text" name="dni" class="form-control" 
+                                       th:value="${cliente.dni}" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Ciudad</label>
+                                <input type="text" name="ciudad" class="form-control" 
+                                       th:value="${cliente.ciudad}" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Correo</label>
+                                <input type="email" name="correo" class="form-control" 
+                                       th:value="${cliente.correo}" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Estado</label>
+                                <select class="form-select" name="estado">
+                                    <option value="true" th:selected="${cliente.estado == true}">Activo</option>
+                                    <option value="false" th:selected="${cliente.estado == false}">Inactivo</option>
+                                </select>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <a th:href="@{/views/cliente}" class="btn btn-secondary me-2">
+                                    <i class="fas fa-arrow-left me-2"></i>Cancelar
+                                </a>
+                                <button type="submit" class="btn btn-submit">
+                                    <i class="fas fa-save me-2"></i>Guardar Cambios
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div th:replace="fragments/layout :: scripts"></div>
+</body>
+</html>
