@@ -9,7 +9,7 @@ public class ConexionDB {
 
 	private static final String usuario = "root";
 	private static final String password = "";
-	private static final String url = "jdbc:mysql://localhost:3306/sysventa";
+	private static final String url = "jdbc:mysql://localhost:3306/eurekabank";
 	private static final String driver = "com.mysql.cj.jdbc.Driver";
 	
 	
