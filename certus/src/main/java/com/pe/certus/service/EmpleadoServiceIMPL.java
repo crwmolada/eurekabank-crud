@@ -31,7 +31,6 @@ public class EmpleadoServiceIMPL implements EmpleadoService {
 		emp.setMaterno(empleado.getMaterno());
 		emp.setNombre(empleado.getNombre());
         emp.setUsuario(empleado.getUsuario());
-		emp.setClave(empleado.getClave());
 		emp.setEstado(empleado.getEstado());
 		if(empleado.getEstado() == null) { 
 			emp.setEstado(true);

@@ -28,23 +28,19 @@ public class Empleado {
     @Column(name = "vch_emplusuario")
     private String usuario;
     
-    @Column(name = "vch_emplclave")
-    private String clave;
-    
     @Column(name = "chr_emplestado")
     private Boolean estado;
 
     public Empleado() {
     }
 
-    public Empleado(Long id, String paterno, String materno, String nombre, String usuario, String clave, Boolean estado) {
+    public Empleado(Long id, String paterno, String materno, String nombre, String usuario, Boolean estado) {
         super();
         this.id = id;
         this.paterno = paterno;
         this.materno = materno;
         this.nombre = nombre;
         this.usuario = usuario;
-        this.clave = clave;
         this.estado = estado;
     }
 
@@ -88,14 +84,6 @@ public class Empleado {
         this.usuario = usuario;
     }
 
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
     public Boolean getEstado() {
         return estado;
     }
@@ -112,7 +100,6 @@ public class Empleado {
                 ", materno='" + materno + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", usuario='" + usuario + '\'' +
-                ", clave='" + clave + '\'' +
                 ", estado='" + estado + '\'' +
                 '}';
     } 

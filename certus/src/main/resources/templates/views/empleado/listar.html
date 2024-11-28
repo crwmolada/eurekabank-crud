@@ -36,7 +36,6 @@
 									<th scope="col">ID</th>
 									<th scope="col">Nombres y Apellidos</th>
 									<th scope="col">Usuario</th>
-									<th scope="col">Clave</th>
 									<th scope="col">Estado</th>
 									<th scope="col">Acciones</th>
 								</tr>
@@ -48,7 +47,6 @@
 										th:text="${c.paterno + ' ' + c.materno + ', ' + c.nombre}"></span>
 									</td>
 									<td th:text="${c.usuario}"></td>
-									<td th:text="${c.clave}"></td>
 									<td><span
 										th:class="${c.estado ? 'status-badge status-active' : 'status-badge status-inactive'}"
 										th:text="${c.estado ? 'Activo' : 'Inactivo'}"> </span></td>
