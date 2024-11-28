@@ -14,20 +14,15 @@ public class ConexionDB {
 	
 	
 	public static Connection getConexion() {
-		// Si no se inicializa como null el método devolverá una variable no inicializada
-		// lo que generará un error de compilación y Java no permite devolver variable que
-		// no tengan un valor asignado.
 		Connection conn = null;
 		try {
-			// Carga la clase del driver de mysql apuntando a la variable 'driver'		
-			Class.forName(driver).newInstance(); // Crea instancia del driver (usado para compatibilidad de otras verciones de JDBC)
+			Class.forName(driver).getDeclaredConstructor().newInstance();
 			conn = DriverManager.getConnection(url, usuario, password);
 			System.out.println("Conexión establecida con éxito.");
 		} catch (Exception e) {
 			System.out.println("Error al establecer conexión: " + e.getMessage());
-			e.printStackTrace(); //Muestra rastro de errres para obtener más detalles
-			conn = null; //En caso de error se asegura de devolver null
-					
+			e.printStackTrace();
+			conn = null;
 		}
 		
 		return conn;
