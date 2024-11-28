@@ -40,6 +40,5 @@ SWEurekaBank es un proyecto de gestión de cuentas que permite realizar operacio
 - Asegúrate de cerrar las conexiones y otros recursos utilizando los métodos proporcionados para evitar fugas de memoria.
 
 ## Base de datos
-```
+
 https://pastebin.com/PeimrXDt
-```
