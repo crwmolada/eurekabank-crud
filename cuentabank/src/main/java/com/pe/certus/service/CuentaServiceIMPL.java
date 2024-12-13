@@ -1,21 +1,27 @@
 package com.pe.certus.service;
 
-import java.util.List;
+import javax.ws.rs.core.Response;
 
-import com.pe.certus.dao.CuentaDAO;
-import com.pe.certus.model.CuentaResponse;
+import com.pe.certus.dao.CuentaDao;
+import com.pe.certus.model.APIResponse;
+import com.pe.certus.model.CuentaRequest;
+import com.pe.certus.util.ResponseUtil;
 
-public class CuentaServiceIMPL implements CuentaService {
+public class CuentaServiceIMPL implements CuentaService{
 
-    private CuentaDAO cuentaDao = new CuentaDAO();
-
+    private CuentaDao cuentaDao = new CuentaDao();
     @Override
-    public List<CuentaResponse> listarCuentas() {
-        return cuentaDao.listarCuentas();
+    public Response listarCuentas() {
+        return ResponseUtil.reponseAPICuentas("0", "Consulta exitosa", cuentaDao.listarCuentas());
     }
 
+    //no es apireponse
     @Override
-    public void crearCuenta() {
-    }
+    public Response crearCuenta(CuentaRequest cuentaRequest) {
 
+        APIResponse response = cuentaDao.insertarCuenta(cuentaRequest);
+
+        return ResponseUtil.reponseAPICuentas(response.getCodeResponse(), response.getMessageResponse(), null);
+    }
+    
 }
